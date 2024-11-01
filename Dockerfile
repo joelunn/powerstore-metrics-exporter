@@ -9,6 +9,12 @@ COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
 
+COPY *.go ./
+COPY ./route ./route
+COPY ./templates ./templates
+COPY ./utils ./utils
+COPY ./collector ./collector
+
 RUN go build -o /powerstore-metrics-exporter
 
 ## Deploy
