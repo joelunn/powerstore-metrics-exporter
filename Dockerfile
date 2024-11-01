@@ -22,10 +22,10 @@ FROM gcr.io/distroless/base-debian10
 
 WORKDIR /
 
-COPY --from=build /powerstore-metrics-exporter ~/powerstore-metrics-exporter
+COPY --from=build /powerstore-metrics-exporter /usr/local/bin/powerstore-metrics-exporter
 
 EXPOSE 9010
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["~/PowerStoreExporter -c config.yml"]
+ENTRYPOINT ["/usr/local/bin/powerstore-metrics-exporter -c /usr/local/bin/config.yml"]
