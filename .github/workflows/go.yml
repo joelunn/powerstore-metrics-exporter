@@ -21,8 +21,20 @@ jobs:
       with:
         go-version: '1.20'
 
-    - name: Build
-      run: go build -v ./...
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - name: Test
-      run: go test -v ./...
+    - name: Fetch required Go modules
+      run:  go mod download
+
+    - name: Build
+      run:  go build -v ./...
+
+    - name: Build Docker image
+      uses: docker/build-push-action@v2
+      with:
+        push: false
+        tags: ${{ github.event.repository.name }}:latest, ${{ github.repository }}:latest
+
+    - name: Run functional tests
+      run:  go test -v ./...
