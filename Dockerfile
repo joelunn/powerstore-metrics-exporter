@@ -9,7 +9,7 @@ COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
 
-RUN go build -o /go-spooky
+RUN go build -o /powerstore-metrics-exporter
 
 ## Deploy
 FROM gcr.io/distroless/base-debian10
