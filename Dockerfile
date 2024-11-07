@@ -21,6 +21,7 @@ RUN go build -o /PowerStoreExporter
 FROM gcr.io/distroless/base-debian10
 
 RUN mkdir -p /etc/powerstore-exporter
+RUN mkdir -p /etc/powerstore-exporter/config
 
 WORKDIR /
 
