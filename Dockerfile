@@ -18,7 +18,6 @@ COPY ./collector ./collector
 RUN go build -o /PowerStoreExporter
 
 RUN mkdir -p /etc/powerstore-exporter
-RUN mkdir -p /etc/powerstore-exporter/config
 
 ## Deploy
 FROM gcr.io/distroless/base-debian10
