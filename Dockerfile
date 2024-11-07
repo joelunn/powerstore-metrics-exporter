@@ -15,17 +15,17 @@ COPY ./templates ./templates
 COPY ./utils ./utils
 COPY ./collector ./collector
 
-RUN go build -o /powerstore-metrics-exporter
+RUN go build -o /PowerStoreExporter
 
 ## Deploy
 FROM gcr.io/distroless/base-debian10
 
 WORKDIR /
 
-COPY --from=build /powerstore-metrics-exporter /usr/local/bin/powerstore-metrics-exporter
+COPY --from=build /PowerStoreExporter /usr/local/bin/PowerStoreExporter
 
 EXPOSE 9010
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["/usr/local/bin/powerstore-metrics-exporter -c /usr/local/bin/config.yml"]
+ENTRYPOINT ["/usr/local/bin/PowerStoreExporter", "-c", "/usr/local/bin/config.yml"]
