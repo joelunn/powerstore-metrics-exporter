@@ -20,12 +20,14 @@ RUN go build -o /PowerStoreExporter
 ## Deploy
 FROM gcr.io/distroless/base-debian10
 
+RUN mkdir -p /etc/powerstore-exporter
+
 WORKDIR /
 
-COPY --from=build /PowerStoreExporter /usr/local/bin/PowerStoreExporter
+COPY --from=build /PowerStoreExporter /etc/powerstore-exporter/PowerStoreExporter
 
 EXPOSE 9010
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["/usr/local/bin/PowerStoreExporter", "-c", "/usr/local/bin/config.yml"]
+ENTRYPOINT ["/etc/powerstore-exporter/PowerStoreExporter", "-c", "/etc/powerstore-exporter/config.yml"]
