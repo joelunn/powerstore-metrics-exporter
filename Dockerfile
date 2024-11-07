@@ -31,4 +31,4 @@ EXPOSE 9010
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["/etc/powerstore-exporter/PowerStoreExporter", "-c", "/etc/powerstore-exporter/config.yml"]
+ENTRYPOINT ["/etc/powerstore-exporter/PowerStoreExporter", "-c", "/etc/powerstore-exporter/config/config.yml"]
