@@ -12,5 +12,5 @@ RUN chmod +x ./powerstore-metrics-exporter
 
 EXPOSE ${PORT}
 
-ENTRYPOINT ["/powerstore_exporter/powerstore-metrics-exporter"]
+ENTRYPOINT ["/powerstore-metrics-exporter"]
 CMD ["-c","/powerstore_exporter/config.yml"]
