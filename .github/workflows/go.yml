@@ -30,7 +30,7 @@ jobs:
     - name: Build
       run: |
         mkdir -p build
-        go build -o build/powerstore-metrics-exporter
+        go build -o ./build/powerstore-metrics-exporter
 
     - name: Build Docker image
       uses: docker/build-push-action@v2
