@@ -8,8 +8,6 @@ WORKDIR /powerstore_exporter
 
 COPY build/powerstore-metrics-exporter .
 
-COPY bulk .
-
 RUN chmod +x ./powerstore-metrics-exporter
 
 EXPOSE ${PORT}
