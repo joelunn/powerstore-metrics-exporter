@@ -6,9 +6,7 @@ LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com
 
 WORKDIR /powerstore_exporter
 
-RUN ls -l .
-
-COPY /build/powerstore-metrics-exporter .
+COPY ./build/powerstore-metrics-exporter .
 
 RUN chmod +x ./powerstore-metrics-exporter
 
