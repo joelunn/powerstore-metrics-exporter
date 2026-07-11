@@ -29,8 +29,6 @@ jobs:
       - name: Build
         run: |
           mkdir -p build
-          mkdir https
-          mkdir bulk
           CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
             go build -o ./build/powerstore-metrics-exporter
 
