@@ -9,9 +9,8 @@ WORKDIR /powerstore_exporter
 COPY build/powerstore-metrics-exporter .
 
 RUN chmod +x ./powerstore-metrics-exporter
-
-COPY bulk .
-COPY https .
+RUN mkdir -p /powerstore_exporter/bulk
+RUN mkdir -p /powerstore_exporter/https
 
 EXPOSE ${PORT}
 
