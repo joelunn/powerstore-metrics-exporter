@@ -10,6 +10,9 @@ COPY build/powerstore-metrics-exporter .
 
 RUN chmod +x ./powerstore-metrics-exporter
 
+COPY bulk .
+COPY https .
+
 EXPOSE ${PORT}
 
 ENTRYPOINT ["/powerstore_exporter/powerstore-metrics-exporter"]
